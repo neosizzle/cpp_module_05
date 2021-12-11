@@ -6,7 +6,10 @@
 void	ShrubberyCreationForm::execute( const Bureaucrat &executor ) const
 {
 	if (!this->getIsSigned())
+	{
+		std::cout << "Cant execute form without signing\n";
 		throw Form::CantExecuteException();
+	}
 	if (executor.getGrade() > this->getGradeExecute())
 		throw Form::GradeTooLowException();
 

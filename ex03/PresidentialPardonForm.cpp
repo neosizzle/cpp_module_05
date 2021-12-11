@@ -6,7 +6,10 @@
 void	PresidentialPardonForm::execute( const Bureaucrat &executor ) const
 {
 	if (!this->getIsSigned())
+	{
+		std::cout << "Cant execute form without signing\n";
 		throw Form::CantExecuteException();
+	}
 	if (executor.getGrade() > this->getGradeExecute())
 		throw Form::GradeTooLowException();
 
@@ -21,12 +24,12 @@ std::string	PresidentialPardonForm::getTarget() const
 /*
 ** Constructors and destructors
 */
-PresidentialPardonForm::PresidentialPardonForm() : Form("robotamy", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm() : Form("presidential pardon", 72, 45)
 {
 	this->_target = "";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("robotamy", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("presidential pardon", 72, 45)
 {
 	this->_target = target;
 }

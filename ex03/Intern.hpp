@@ -8,16 +8,14 @@
 
 class Intern
 {
-private:
-	/* data */
-public:
-	Intern();
-	~Intern();
-	Intern(const Intern &intern);
+	public:
+		Intern();
+		~Intern();
+		Intern(const Intern &intern);
 
-	Intern & operator = (const Intern &intern);
+		Intern & operator = (const Intern &intern);
 
-	Form	*makeForm(std::string formname, std::string target);
+		Form	*makeForm(std::string formname, std::string target);
 };
 
 

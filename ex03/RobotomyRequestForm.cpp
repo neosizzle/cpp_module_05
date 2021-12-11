@@ -8,7 +8,10 @@ void	RobotomyRequestForm::execute( const Bureaucrat &executor ) const
 	int	num;
 
 	if (!this->getIsSigned())
+	{
+		std::cout << "Cant execute form without signing\n";
 		throw Form::CantExecuteException();
+	}
 	if (executor.getGrade() > this->getGradeExecute())
 		throw Form::GradeTooLowException();
 
